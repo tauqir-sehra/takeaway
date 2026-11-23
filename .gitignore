@@ -1,0 +1,16 @@
+# Personal data: converted places and cached lookups
+output/
+output-*/
+cache.json
+*.geojson
+*.kml
+*.gpx
+*.zip
+Takeout/
+
+__pycache__/
+*.egg-info/
+build/
+dist/
+.DS_Store
+*.swp

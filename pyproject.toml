@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "takeaway"
+version = "1.1.0"
+description = "Turn a Google Takeout export of your saved places into GeoJSON, KML and GPX."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: GIS",
+]
+
+# The tool itself has no dependencies; these are for working on it.
+[project.optional-dependencies]
+dev = ["mypy>=1.10", "ruff>=0.6"]
+
+[project.scripts]
+takeaway = "takeaway:main"
+
+[tool.setuptools]
+py-modules = ["takeaway"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "C4", "SIM", "RUF"]
+
+[tool.mypy]
+# No python_version: check against the interpreter running mypy. Ruff's
+# target-version keeps the source free of post-3.9 syntax.
+strict = true
+files = ["takeaway.py", "tests"]
